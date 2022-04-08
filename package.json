@@ -5,7 +5,8 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src/* test/* dist/*",
     "test": "jest"
   },
   "pre-commit": [
@@ -71,6 +72,7 @@
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/preset-typescript": "^7.16.7",
+    "@size-limit/preset-small-lib": "^7.0.8",
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
@@ -80,7 +82,15 @@
     "jest": "^27.5.1",
     "prettier": "^2.6.1",
     "semantic-release": "^19.0.2",
+    "size-limit": "^7.0.8",
     "ts-jest": "^27.1.4",
     "typescript": "^4.6.3"
-  }
+  },
+  "size-limit": [
+    {
+      "name": "main",
+      "path": "dist/src/*.js",
+      "limit": "10 KB"
+    }
+  ]
 }
