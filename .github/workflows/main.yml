@@ -11,8 +11,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: [16.x]
-        os: [ubuntu-latest]
+        node:
+          - 16.x
+        os:
+          - ubuntu-latest
 
     steps:
       - name: Checkout repo
