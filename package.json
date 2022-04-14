@@ -1,13 +1,15 @@
 {
   "name": "datauniverse-utils",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "datauniverse commonUtils library",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
+    "prepare": "rm -rf dist && tsc",
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src/* test/* dist/*",
-    "test": "jest"
+    "test": "jest",
+    "semantic-release": "semantic-release"
   },
   "pre-commit": [
     "lint"
@@ -39,15 +41,31 @@
     ]
   },
   "release": {
-    "prepare": [
-      {
-        "path": "@semantic-release/changelog"
-      },
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": true,
+          "tarballDir": "dist"
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "docs/CHANGELOG.md"
+        }
+      ],
       [
         "@semantic-release/git",
         {
           "assets": [
-            "CHANGELOG.md"
+            "docs/CHANGELOG.md"
           ]
         }
       ]
@@ -55,7 +73,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ted911/datauniverse-utils.git"
+    "url": "https://github.com/ted911/datauniverse-utils.git"
   },
   "keywords": [
     "datauniverse",
@@ -70,17 +88,19 @@
   "homepage": "https://github.com/ted911/datauniverse-utils#readme",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/preset-typescript": "^7.16.7",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@types/jest": "^27.4.1",
-    "@typescript-eslint/eslint-plugin": "^5.17.0",
-    "@typescript-eslint/parser": "^5.17.0",
-    "eslint": "^8.12.0",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.5.1",
-    "prettier": "^2.6.1",
+    "prettier": "^2.6.2",
     "semantic-release": "^19.0.2",
     "size-limit": "^7.0.8",
     "ts-jest": "^27.1.4",

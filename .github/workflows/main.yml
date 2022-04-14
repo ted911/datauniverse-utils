@@ -37,3 +37,11 @@ jobs:
           npm install
           npm run build --if-present
           npm run test  --if-present
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm run semantic-release
+          npm publish

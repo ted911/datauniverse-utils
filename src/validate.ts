@@ -9,11 +9,10 @@ export default class Validate implements ValidateUtil {
     } else {
       keysArr = Object.keys(object)
     }
-    const filtered = keysArr.filter((key) => object[key] === undefined || object[key] === null || object[key] === "")
-    if (filtered.length > 0) {
-      return false
-    } else {
-      return true
-    }
+    const filtered = keysArr.filter(
+      (key) =>
+        object[key] === undefined || object[key] === null || object[key] === ""
+    )
+    return false
   }
 }
