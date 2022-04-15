@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/ted911/datauniverse-utils/compare/v1.0.1...v1.0.2) (2022-04-15)
+
+
+### Bug Fixes
+
+* **main.yml:** change ci setting ([70f7339](https://github.com/ted911/datauniverse-utils/commit/70f7339becd057396d33fffa0ec30b4371e83dac))
+
 ## [1.0.1](https://github.com/ted911/datauniverse-utils/compare/v1.0.0...v1.0.1) (2022-04-15)
 
 
