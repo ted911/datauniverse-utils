@@ -1,6 +1,6 @@
 {
   "name": "datauniverse-utils",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "datauniverse commonUtils library",
   "main": "index.js",
   "types": "index.d.ts",
